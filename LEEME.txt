@@ -1,0 +1,47 @@
+MAQUETA NAVEGABLE · LEYUX ABOGADOS · EMBUDO SEGUNDA OPORTUNIDAD (DICIEMBRE)
+==========================================================================
+
+CÓMO SUBIRLA
+1. Sube TODA esta carpeta a una ruta del servidor (por ejemplo /revision-dic/) manteniendo las subcarpetas css, js e img.
+2. Abre https://tu-dominio/revision-dic/index.html
+3. La maqueta no se indexa (noindex y robots.txt). Es solo para revisar el diseño.
+
+LAS 4 PÁGINAS DEL EMBUDO
+- index.html          Landing: formulario de 7 preguntas, casos reales, proceso, precio, equipo, FAQ y cierre.
+- cita.html           Paso 2: elegir día y hora (calendario «Cita Almería»).
+- gracias.html        Confirmación de la cita.
+- no-calificado.html  Respuesta para quien no encaja.
+
+QUÉ ES SIMULADO (en el sitio real lo pone GoHighLevel)
+- El formulario y el calendario son maquetas: no guardan datos.
+- Para recorrer el flujo: responde el formulario; al terminar te lleva a cita.html, y al reservar, a gracias.html.
+- Para ver las respuestas de descalificación, contesta en el formulario:
+    · No puedo ir a Almería capital  ->  no-calificado (lejos)
+    · Deuda menor de 25.000 €        ->  no-calificado (importe)
+    · Solo deudas con Hacienda o Seguridad Social  ->  no-calificado (deuda pública)
+  También se pueden abrir directo: no-calificado.html?motivo=lejos | importe | deuda-publica
+- La confirmación muestra la fecha solo si llega: gracias.html?dia=jueves%2027%20de%20noviembre&hora=10:30
+  Sin fecha, esa línea y el botón «Añadir a mi calendario» se ocultan.
+
+LO QUE HAY QUE REVISAR (DISEÑO)
+- Hero con foto y vídeo del equipo saliendo del despacho (el vídeo se reproduce solo, sin sonido).
+- Línea de tiempo del proceso: se va llenando al bajar y presenta cada paso con su imagen.
+- Fotos del equipo con el mismo fondo; cita, confirmación y «no calificado» con foto a pantalla completa.
+- Revisar también en el móvil: se ha diseñado para leerse sin esfuerzo.
+
+IMÁGENES
+- Las fotos del equipo, del despacho y los logos son los reales del cliente.
+- Las escenas del proceso, la de la cita, la de «no calificado» y el vídeo del hero son imágenes generadas con IA,
+  a partir de las fotos reales. El parecido con el equipo es muy alto pero no exacto: necesitan su visto bueno.
+
+TEXTOS QUE AÑADIMOS Y NECESITAN APROBACIÓN
+- «Son ejemplos de casos reales del despacho, no una promesa: cada caso es distinto y la decisión es siempre del juez.»
+- Si no llega la fecha de la cita: «Revisa tu correo: ahí tienes la fecha y la hora de tu cita.»
+- Títulos de «no calificado»: «Atendemos cada caso en persona» y «Nuestro servicio empieza en 25.000 €».
+- Se usa la fachada de noche en la franja «Tener deudas no te convierte en una mala persona».
+
+PENDIENTE DE DATOS REALES DEL CLIENTE
+- Teléfono y email públicos, número de WhatsApp (mientras no exista, el botón «Confirmo mi cita» queda oculto).
+- Reseñas reales de Google y vídeo de presentación de José.
+- Confirmar la dirección y la regla de la pregunta de vivienda.
+- Las 2 preguntas del calendario (el documento las dejó en blanco).
