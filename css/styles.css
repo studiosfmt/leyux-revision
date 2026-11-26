@@ -493,6 +493,87 @@ html { scroll-behavior: smooth; }
   .lyx .hero__grid { margin-top: -90px; }
 }
 
+/* ═══════════════ v3 · feedback del cliente (26-11) ═══════════════ */
+
+/* Hero: fotos reales del despacho y luego el equipo, con movimiento y fundido */
+.lyx .hero__slides { position: absolute; inset: 0; overflow: hidden; }
+.lyx .hero__s { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; opacity: 0; transform: scale(1.14); animation: lyxSlide 24s linear infinite; will-change: opacity, transform; }
+.lyx .hero__s:nth-child(1) { animation-delay: -1s; }
+.lyx .hero__s:nth-child(2) { animation-delay: 5s; }
+.lyx .hero__s:nth-child(3) { animation-delay: 11s; }
+.lyx .hero__s:nth-child(4) { animation-delay: 17s; }
+.lyx .hero__s--team { object-position: 100% 80%; }
+@keyframes lyxSlide {
+  0% { opacity: 0; transform: scale(1.14) translateX(1.5%); }
+  5% { opacity: 1; }
+  25% { opacity: 1; }
+  30% { opacity: 0; transform: scale(1.02) translateX(-1%); }
+  100% { opacity: 0; transform: scale(1.02) translateX(-1%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lyx .hero__s { animation: none; transform: none; }
+  .lyx .hero__s--team { opacity: 1; }
+}
+.lyx .hero .hero__vid { display: none; }
+
+/* Trazo rojo bajo «Tener deudas» */
+.lyx .trazo { position: relative; display: inline-block; white-space: nowrap; }
+.lyx .trazo::after { content: ""; position: absolute; left: -2%; right: -2%; bottom: -.16em; height: .34em; z-index: -1;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 24' preserveAspectRatio='none'%3E%3Cpath d='M3 15 C 60 7, 120 6, 180 9 S 270 15, 297 8' fill='none' stroke='%23D9373D' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M18 19 C 90 13, 170 12, 286 14' fill='none' stroke='%23D9373D' stroke-width='3' stroke-linecap='round' opacity='.7'/%3E%3C/svg%3E") no-repeat 0 0 / 100% 100%;
+  clip-path: inset(0 100% 0 0); transition: clip-path 1.1s .5s var(--ease); }
+.lyx .is-in .trazo::after, .lyx .is-split .trazo::after { clip-path: inset(0 0 0 0); }
+.lyx .bleed__in { position: relative; z-index: 1; isolation: isolate; }
+
+/* Casos reales: al pasar el cursor, color de la marca */
+.lyx .cases__grid > div { position: relative; transition: background-color .35s var(--ease), padding .35s var(--ease); }
+.lyx .cases__grid > div:hover { background: var(--red); }
+.lyx .cases__grid > div:hover .cases__t { color: #fff; }
+@media (hover: hover) and (min-width: 900px) {
+  .lyx .cases__grid > div { padding-inline: 20px; margin-inline: -20px; border-radius: 6px; }
+  .lyx .cases__grid > div:hover { padding-inline: 32px; }
+}
+
+/* Menos hueco entre secciones */
+.lyx .section { padding: clamp(56px, 7vw, 104px) 0; }
+.lyx .cases { padding: clamp(56px, 7vw, 96px) 0; }
+.lyx .final, .lyx .calm { padding: clamp(64px, 8vw, 110px) 0; }
+.lyx .bleed { padding: clamp(56px, 7vw, 96px) 0; min-height: min(72svh, 640px); }
+.lyx .change { padding: clamp(56px, 7vw, 96px) 0; }
+
+/* Título del hero: máximo dos líneas en escritorio */
+@media (min-width: 900px) {
+  .lyx .hero__media { width: 100%; -webkit-mask-image: none; mask-image: none; }
+  .lyx .hero__shade { background: linear-gradient(90deg, rgba(32,33,37,.92) 0%, rgba(32,33,37,.78) 30%, rgba(32,33,37,.35) 60%, rgba(32,33,37,.15) 100%), linear-gradient(0deg, rgba(32,33,37,.6) 0%, rgba(32,33,37,0) 35%), linear-gradient(180deg, rgba(32,33,37,.55) 0%, rgba(32,33,37,0) 25%); }
+  .lyx .hero__grid { grid-template-areas: "copy copy" "form seals"; }
+  .lyx .hero h1 { max-width: none; font-size: clamp(2.4rem, 3.7vw, 3.5rem); text-wrap: initial; }
+  .lyx .hero h1 em { display: block; }
+}
+
+/* Reseñas de Google */
+.lyx .rv { background: var(--surface, #F5F5F5); }
+.lyx .rv__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: clamp(28px, 4vw, 48px); }
+.lyx .rv__score { display: grid; grid-template-columns: auto auto; align-items: center; column-gap: 12px; padding: 16px 22px; background: #fff; border: 1px solid var(--line); border-radius: 10px; color: var(--ink); text-decoration: none; transition: border-color .3s, transform .3s; }
+.lyx .rv__score:hover { border-color: var(--red); transform: translateY(-2px); }
+.lyx .rv__num { grid-row: span 2; font-size: 2.6rem; font-weight: 700; line-height: 1; }
+.lyx .rv__count { font-size: .9rem; color: var(--muted, #5b5d63); }
+.lyx .rv__stars { display: inline-flex; gap: 2px; }
+.lyx .rv__stars svg { width: 18px; height: 18px; fill: #F5B301; }
+.lyx .rv__grid { display: grid; gap: 18px; }
+.lyx .rv__card { margin: 0; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 24px; display: grid; gap: 14px; align-content: start; transition: border-color .3s, box-shadow .3s, transform .3s; }
+.lyx .rv__card:hover { border-color: var(--red); box-shadow: 0 14px 34px -18px rgba(154,23,28,.45); transform: translateY(-3px); }
+.lyx .rv__top { display: flex; align-items: center; gap: 12px; }
+.lyx .rv__top b { display: block; font-size: 1rem; }
+.lyx .rv__top small { color: var(--muted, #5b5d63); font-size: .85rem; }
+.lyx .rv__av { flex: none; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--red-soft); color: var(--red); font-weight: 700; }
+.lyx .rv__g { margin-left: auto; font: 700 1.2rem/1 Arial, sans-serif; background: conic-gradient(#EA4335 0 25%, #FBBC05 0 50%, #34A853 0 75%, #4285F4 0); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lyx .rv__card blockquote { margin: 0; font-size: 1.02rem; line-height: 1.65; }
+.lyx .rv__more { margin-top: 28px; text-align: center; }
+@media (min-width: 700px) { .lyx .rv__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1000px) { .lyx .rv__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* Confirmación: equipo real a la derecha */
+.lyx .ok__media img { object-position: 100% 80% !important; }
+
 
 /* ═══════════════ MODO MAQUETA ═══════════════
    Estos estilos solo existen en las páginas locales. NO van a GHL (allí van los iframes reales). */

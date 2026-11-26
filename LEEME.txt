@@ -24,14 +24,15 @@ QUÉ ES SIMULADO (en el sitio real lo pone GoHighLevel)
   Sin fecha, esa línea y el botón «Añadir a mi calendario» se ocultan.
 
 LO QUE HAY QUE REVISAR (DISEÑO)
-- Hero con foto y vídeo del equipo saliendo del despacho (el vídeo se reproduce solo, sin sonido).
+- Hero con fotos reales del despacho y del equipo que se suceden con movimiento suave (sin vídeo).
+- Reseñas reales de Google (5,0 · 68 reseñas) con enlace a la ficha.
 - Línea de tiempo del proceso: se va llenando al bajar y presenta cada paso con su imagen.
 - Fotos del equipo con el mismo fondo; cita, confirmación y «no calificado» con foto a pantalla completa.
 - Revisar también en el móvil: se ha diseñado para leerse sin esfuerzo.
 
 IMÁGENES
 - Las fotos del equipo, del despacho y los logos son los reales del cliente.
-- Las escenas del proceso, la de la cita, la de «no calificado» y el vídeo del hero son imágenes generadas con IA,
+- Las escenas del proceso, la de la cita y la de «no calificado» son imágenes generadas con IA,
   a partir de las fotos reales. El parecido con el equipo es muy alto pero no exacto: necesitan su visto bueno.
 
 TEXTOS QUE AÑADIMOS Y NECESITAN APROBACIÓN
