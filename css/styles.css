@@ -574,6 +574,13 @@ html { scroll-behavior: smooth; }
 /* Confirmación: equipo real a la derecha */
 .lyx .ok__media img { object-position: 100% 80% !important; }
 
+/* Casos reales: en móvil se ilumina la fila que pasa por el centro de la pantalla */
+.lyx .cases__grid > div.is-active { background: var(--red); }
+.lyx .cases__grid > div.is-active .cases__t { color: #fff; }
+@media (max-width: 899px) {
+  .lyx .cases__grid > div { padding-inline: 18px; margin-inline: -18px; border-radius: 6px; transition: background-color .45s var(--ease); }
+}
+
 
 /* ═══════════════ MODO MAQUETA ═══════════════
    Estos estilos solo existen en las páginas locales. NO van a GHL (allí van los iframes reales). */

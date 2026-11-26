@@ -217,4 +217,20 @@
     });
     hv.load();
   }
+
+  /* -- Casos reales en movil: se iluminan al bajar, como el hover de escritorio -- */
+  var caseRows = $$('.cases__grid > div');
+  if (caseRows.length && window.matchMedia('(hover: none), (max-width: 899px)').matches) {
+    var caseTick = function () {
+      var mid = window.innerHeight * 0.5, best = null, bestD = Infinity;
+      caseRows.forEach(function (r) {
+        var b = r.getBoundingClientRect(), c = b.top + b.height / 2, d = Math.abs(c - mid);
+        if (b.bottom > 0 && b.top < window.innerHeight && d < bestD && d < window.innerHeight * 0.35) { best = r; bestD = d; }
+      });
+      caseRows.forEach(function (r) { r.classList.toggle('is-active', r === best); });
+    };
+    window.addEventListener('scroll', caseTick, { passive: true });
+    window.addEventListener('resize', caseTick);
+    caseTick();
+  }
 })();
