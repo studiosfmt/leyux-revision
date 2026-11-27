@@ -71,7 +71,7 @@ html { scroll-behavior: smooth; }
 .lyx .hero .eyebrow { color: rgba(255,255,255,.78); }
 .lyx .hero .eyebrow::before { content: ""; display: inline-block; width: 34px; height: 2px; background: #D9373D; vertical-align: middle; margin-right: 14px; }
 .lyx .hero h1 { font-weight: 700; font-size: clamp(2.3rem, 4.4vw, 3.8rem); line-height: 1.08; letter-spacing: -.02em; max-width: 16ch; text-wrap: balance; color: #fff; }
-.lyx .hero h1 em { color: #F4C6C8; }
+.lyx .hero h1 em { color: var(--red); }
 .lyx .hero__lead { margin-top: 24px; font-size: clamp(1.1rem, 1.4vw, 1.25rem); line-height: 1.7; color: rgba(255,255,255,.88); max-width: 42ch; }
 .lyx .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
 .lyx .chips li { display: inline-flex; align-items: center; gap: 9px; border: 1px solid rgba(255,255,255,.3); background: rgba(32,33,37,.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); color: #fff; font-weight: 700; font-size: 14.5px; padding: 10px 16px; border-radius: 6px; }
@@ -497,17 +497,16 @@ html { scroll-behavior: smooth; }
 
 /* Hero: fotos reales del despacho y luego el equipo, con movimiento y fundido */
 .lyx .hero__slides { position: absolute; inset: 0; overflow: hidden; }
-.lyx .hero__s { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; opacity: 0; transform: scale(1.14); animation: lyxSlide 24s linear infinite; will-change: opacity, transform; }
-.lyx .hero__s:nth-child(1) { animation-delay: -1s; }
-.lyx .hero__s:nth-child(2) { animation-delay: 5s; }
-.lyx .hero__s:nth-child(3) { animation-delay: 11s; }
-.lyx .hero__s:nth-child(4) { animation-delay: 17s; }
+.lyx .hero__s { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; opacity: 0; transform: scale(1.14); animation: lyxSlide 18s linear infinite; will-change: opacity, transform; }
+.lyx .hero__s:nth-child(1) { animation-delay: -.6s; }
+.lyx .hero__s:nth-child(2) { animation-delay: 5.4s; }
+.lyx .hero__s:nth-child(3) { animation-delay: 11.4s; }
 .lyx .hero__s--team { object-position: 100% 80%; }
 @keyframes lyxSlide {
   0% { opacity: 0; transform: scale(1.14) translateX(1.5%); }
-  5% { opacity: 1; }
-  25% { opacity: 1; }
-  30% { opacity: 0; transform: scale(1.02) translateX(-1%); }
+  6% { opacity: 1; }
+  33% { opacity: 1; }
+  40% { opacity: 0; transform: scale(1.02) translateX(-1%); }
   100% { opacity: 0; transform: scale(1.02) translateX(-1%); }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -580,6 +579,19 @@ html { scroll-behavior: smooth; }
 @media (max-width: 899px) {
   .lyx .cases__grid > div { padding-inline: 18px; margin-inline: -18px; border-radius: 6px; transition: background-color .45s var(--ease); }
 }
+
+/* «Tener deudas no te convierte…»: composición partida (no repite la foto del hero) */
+.lyx .bleed--split { display: block; min-height: 0; padding: clamp(64px, 8vw, 120px) 0; background: var(--ink); }
+.lyx .bleed--split::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(60% 80% at 0% 100%, rgba(154,23,28,.35) 0%, rgba(154,23,28,0) 70%); }
+.lyx .bleed--split .bleed__in { display: grid; gap: clamp(32px, 5vw, 72px); align-items: center; }
+.lyx .bleed__rule { display: block; width: 56px; height: 3px; background: #D9373D; margin-bottom: 28px; }
+.lyx .bleed--split .bleed__big { font-size: clamp(2rem, 4.2vw, 3.6rem); max-width: 14ch; line-height: 1.12; }
+.lyx .bleed__fig { position: relative; margin: 0; border-radius: 10px; overflow: hidden; aspect-ratio: 4 / 5; background: #111; box-shadow: 0 40px 80px -40px rgba(0,0,0,.7); }
+.lyx .bleed__fig img { position: absolute; inset: -8% 0; width: 100%; height: 116%; object-fit: cover; object-position: 62% 40%; will-change: transform; }
+.lyx .bleed__fig::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(32,33,37,.75) 0%, rgba(32,33,37,0) 40%); }
+.lyx .bleed__fig figcaption { position: absolute; left: 22px; bottom: 18px; z-index: 1; font-size: .9rem; color: rgba(255,255,255,.85); letter-spacing: .02em; }
+@media (max-width: 899px) { .lyx .bleed__fig { aspect-ratio: 4 / 3; order: -1; } }
+@media (min-width: 900px) { .lyx .bleed--split .bleed__in { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); } .lyx .bleed__fig { max-height: 620px; } }
 
 
 /* ═══════════════ MODO MAQUETA ═══════════════
